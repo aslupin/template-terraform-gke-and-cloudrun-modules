@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    creationTimestamp: null
+    labels:
+        app: svc-1
+    name: svc-1
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: svc-1
+    template:
+        metadata:
+            creationTimestamp: null
+            labels:
+                app: svc-1
+        spec:
+            containers:
+                - image: asia.gcr.io/project-id/svc-1-org-prod:latest
+                  name: svc-1-org-prod
+                  ports:
+                      - name: http
+                        containerPort: 5000
+                  resources:
+                      requests:
+                          cpu: '200m'

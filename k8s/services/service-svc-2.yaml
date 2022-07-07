@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+    namespace: logpost
+    name: svc-2
+    labels:
+        app: svc-2
+spec:
+    selector:
+        app: svc-2
+    ports:
+        - port: 80
+          protocol: TCP
+          targetPort: 8081
+    type: LoadBalancer
